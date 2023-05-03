@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <p className='text-center'><small>copyright of Chef Recipe Hunter</small></p>
+            <p className='text-center mt-2'><small>copyright of Chef Recipe Hunter</small></p>
         </div>
     );
 };
