@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/chef_hut.png'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 const Header = () => {
+
+    const { user } = useContext(AuthContext);
+
     return (
-        <div style={{backgroundColor: 'blue'}}>
+        <div style={{ backgroundColor: 'blue' }}>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <img src={logo} alt="" />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#features">Home</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
+
+                            <Link to="/" className='me-3 text-decoration-none text-white'>Home</Link>
+
+                            <Link to="/blog" className='text-decoration-none text-white'>Blog</Link>
+
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
+                            {
+                                user && <Nav.Link href="#deets"><FaUserCircle style={{ fontSize: '2.5rem' }}></FaUserCircle></Nav.Link>
+                            }
                             <Nav.Link eventKey={2} href="#memes">
-                                <Button variant="secondary">Login</Button>
+                                {user ? <Button variant="secondary">Logout</Button> :
+                                    <Link to="/login">
+                                        <Button variant="secondary">Login</Button>
+                                    </Link>}
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

@@ -1,9 +1,10 @@
 import React from 'react';
+import UpperNav from '../../UpperNav/UpperNav';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home</h2>
+            <UpperNav></UpperNav>
         </div>
     );
 };

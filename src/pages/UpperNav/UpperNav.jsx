@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { FaRegThumbsUp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const UpperNav = () => {
     const [chefs, setChefs] = useState([]);
@@ -18,6 +18,7 @@ const UpperNav = () => {
                 {
                     chefs.map(chef => <Col
                         key={chef.id}
+                        chef={chef}
                     >
                         <Card className="text-center">
                             <Card.Header>
@@ -31,7 +32,7 @@ const UpperNav = () => {
                             </Card.Body>
                             <Card.Footer className="text-muted d-flex justify-content-between align-items-center">
                                 <p className='d-flex align-items-center'><FaRegThumbsUp className=''/>{chef.likes}</p>
-                                <Button variant="dark">View Recipes</Button>
+                                <Link to={`/chef/${chef.id}`}><Button variant="dark">View Recipes</Button></Link>
                             </Card.Footer>
                         </Card>
                     </Col>)

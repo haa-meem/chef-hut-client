@@ -1,17 +1,17 @@
 import React from 'react';
 import Header from '../pages/shared/Header/Header';
-import Footer from '../pages/shared/Footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
+import Footer from '../pages/shared/Footer/Footer';
+import Chef from '../pages/Chef';
 
-const Main = () => {
+const ChefLayout = () => {
     return (
         <div>
             <Header></Header>
             <Container>
                 <Row>
                     <Col lg={12}>
-                        <Outlet></Outlet>
+                        <Chef></Chef>
                     </Col>
                 </Row>
             </Container>
@@ -20,4 +20,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default ChefLayout;
