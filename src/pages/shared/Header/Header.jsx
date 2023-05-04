@@ -24,14 +24,12 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             {
-                                user && <Nav.Link href="#deets"><FaUserCircle style={{ fontSize: '2.5rem' }}></FaUserCircle></Nav.Link>
+                                user && <FaUserCircle style={{ fontSize: '2.5rem' }}></FaUserCircle>
                             }
-                            <Nav.Link eventKey={2} href="#memes">
                                 {user ? <Button variant="secondary">Logout</Button> :
                                     <Link to="/login">
                                         <Button variant="secondary">Login</Button>
                                     </Link>}
-                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
