@@ -13,7 +13,7 @@ const Header = () => {
         .error(error=>console.log(error));
     }
     return (
-        <div>
+        <div className='xs:w-100'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <img src={logo} alt="" />

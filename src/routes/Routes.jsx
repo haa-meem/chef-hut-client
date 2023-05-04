@@ -29,21 +29,14 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blog></Blog>
-            }
-        ]
-    },
-    {
-        path: 'chef',
-        element: <ChefLayout></ChefLayout>,
-        children: [
+            },
             {
-                path: ':id',
+                path: '/chef/:id',
                 element: <PrivateRoute><Chef></Chef></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-haa-meem.vercel.app/chefs/${params.id}`)
             }
         ]
     },
-
     {
         path: '*',
         element: <NotFound></NotFound>

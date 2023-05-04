@@ -6,17 +6,17 @@ import meal3 from '../../assets/meal3.jpg';
 
 const LowerNav = () => {
     return (
-        <div className='my-4 w-75 mx-auto'>
+        <div className='my-2 w-75 mx-auto'>
             <h2 className='text-center my-4'>Special Meals for You</h2>
             <Container>
-                <Row>
-                    <Col xs={6} md={4}>
+                <Row xs={1} md={2} lg={3} className="g-4">
+                    <Col>
                         <Image src={meal1} style={{ height: '300px' }} roundedCircle />
                     </Col>
-                    <Col xs={6} md={4}>
+                    <Col>
                         <Image src={meal2} style={{ height: '300px' }} roundedCircle />
                     </Col>
-                    <Col xs={6} md={4}>
+                    <Col>
                         <Image src={meal3} style={{ height: '300px' }} roundedCircle />
                     </Col>
                 </Row>

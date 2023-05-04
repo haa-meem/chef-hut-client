@@ -6,7 +6,7 @@ import food3 from '../../assets/food3.jpg';
 
 const MiddleNav = () => {
     return (
-        <div className='my-4 w-75 mx-auto'>
+        <div className='my-4 lg:w-75 mx-auto'>
             <h2 className='text-center my-4'>Special Foods from Master Chefs</h2>
             <Carousel>
                 <Carousel.Item interval={500}>
