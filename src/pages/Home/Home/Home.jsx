@@ -1,11 +1,16 @@
 import React from 'react';
 import UpperNav from '../../UpperNav/UpperNav';
+import MiddleNav from '../../MiddleNav/MiddleNav';
+import { Container } from 'react-bootstrap';
+import LowerNav from '../../LowerNav/LowerNav';
 
 const Home = () => {
     return (
-        <div>
+        <Container>
             <UpperNav></UpperNav>
-        </div>
+            <MiddleNav></MiddleNav>
+            <LowerNav></LowerNav>
+        </Container>
     );
 };
 

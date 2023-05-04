@@ -13,8 +13,8 @@ const UpperNav = () => {
     }, [])
     return (
         <div>
-            <h2 className='text-center mt-4'>Chinese Master Chefs</h2>
-            <Row xs={1} md={2} lg={3} className="g-4 mt-2">
+            <h2 className='text-center my-4'>Chinese Master Chefs</h2>
+            <Row xs={1} md={2} lg={3} className="g-4">
                 {
                     chefs.map(chef => <Col
                         key={chef.id}
