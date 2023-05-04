@@ -29,7 +29,7 @@ const Login = () => {
                 </Form.Text>
                 <br/>
                 <Button variant="outline-primary" className='mb-1'><FaGoogle/> Google Sign-in</Button><br/>
-                <Button variant="outline-secondary"><FaGithub/> GitHub Sign-in</Button>
+                <Button variant="outline-secondary" className='mb-2'><FaGithub/> GitHub Sign-in</Button>
             </Form>
         </Container>
     );

@@ -30,14 +30,8 @@ const Register = () => {
                     Register
                 </Button>
                 <br />
-                <Form.Text className="text-secondary">
+                <Form.Text className="text-secondary mb-2">
                     Already have an Account? <Link to="/login">Login</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
                 </Form.Text>
             </Form>
         </Container>

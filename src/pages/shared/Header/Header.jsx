@@ -9,7 +9,7 @@ const Header = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div style={{ backgroundColor: 'blue' }}>
+        <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <img src={logo} alt="" />
