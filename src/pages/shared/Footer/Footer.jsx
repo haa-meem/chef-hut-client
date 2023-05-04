@@ -6,10 +6,15 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
+        <div style={{
+            position: 'fixed',
+            right: '0',
+            left: '0',
+            bottom: '0',
+        }}>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <GiCook style={{ fontSize: '3rem', color: 'white' }} className='me-1'/> <h2 className='text-white me-3'>Chef Hut</h2>
+                    <GiCook style={{ fontSize: '3rem', color: 'white' }} className='me-1' /> <h2 className='text-white me-3'>Chef Hut</h2>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='me-5'>
