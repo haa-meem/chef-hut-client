@@ -6,12 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div style={{
-            position: 'fixed',
-            right: '0',
-            left: '0',
-            bottom: '0',
-        }}>
+        <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <GiCook style={{ fontSize: '3rem', color: 'white' }} className='me-1' /> <h2 className='text-white me-3'>Chef Hut</h2>
@@ -21,9 +16,9 @@ const Footer = () => {
 
                             <Link to="/" className='me-2 text-decoration-none text-white'>Recipes</Link>
 
-                            <Link to="/blog" className='me-2 text-decoration-none text-white'>Cookbooks</Link>
+                            <Link to="/" className='me-2 text-decoration-none text-white'>Cookbooks</Link>
 
-                            <Link to="/blog" className='me-2 text-decoration-none text-white'>Contact</Link>
+                            <Link to="/" className='me-2 text-decoration-none text-white'>Contact</Link>
 
                         </Nav>
                         <Nav>

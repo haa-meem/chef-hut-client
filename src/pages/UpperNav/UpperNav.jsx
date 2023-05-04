@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const UpperNav = () => {
     const [chefs, setChefs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://chef-recipe-hunter-server-haa-meem.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.error())
