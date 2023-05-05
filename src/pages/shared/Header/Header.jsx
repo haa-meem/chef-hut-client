@@ -10,7 +10,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then()
-            .error(error => console.log(error));
+            .error(error => console.log(error.message));
     }
     return (
         <div className='xs:w-100'>

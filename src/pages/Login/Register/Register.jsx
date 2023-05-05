@@ -1,16 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
+    const [error,setError]=useState(''); //error message state
+    const [success,setSuccess]=useState(''); //success message
     const { createUser } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
+        setSuccess('');
         const form = event.target;
         const name = form.name.value;
-        const photo = form.photo.value
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
@@ -18,9 +21,13 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                setError('');
+                form.reset();
+                setSuccess('User has registered successfully');
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
+                setError(error.message);
             })
     }
 
@@ -47,6 +54,7 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" name="accept" label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} />
                 </Form.Group>
+                <p className='text-danger'>{error}</p>
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
@@ -55,6 +63,7 @@ const Register = () => {
                     Already have an Account? <Link to="/login">Login</Link>
                 </Form.Text>
             </Form>
+            <p className='text-success'>{success}</p>
         </Container>
     );
 };
