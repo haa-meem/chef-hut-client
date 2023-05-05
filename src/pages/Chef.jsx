@@ -6,7 +6,6 @@ import { useLoaderData, useParams } from 'react-router-dom';
 const Chef = () => {
     const { id, name, picture, likes, num_recipes, years_of_experience, recipes } = useParams();
     const chef = useLoaderData();
-    console.log(chef.recipes[0].ingredients);
 
     //For three favorite buttons
     const [isFavorite1, setIsFavorite1] = useState(false);

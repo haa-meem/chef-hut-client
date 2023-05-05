@@ -3,12 +3,15 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
 
 const Login = () => {
+    // Email Password Login
     const { signIn } = useContext(AuthContext);
-    const navigate=useNavigate();
-    const location=useLocation();
-    const from=location.state?.from?.pathname||'/';
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleLogin = event => {
         event.preventDefault();
         event.preventDefault();
@@ -21,10 +24,36 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate(from,{replace:true});
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
+            })
+    }
+    // Google Login
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
+    }
+    //GitHub Login
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true });
             })
     }
 
@@ -51,9 +80,9 @@ const Login = () => {
                 <Form.Text className="text-secondary">
                     Don't have an Account? <Link to="/register">Register</Link>
                 </Form.Text>
-                <br/>
-                <Button variant="outline-primary" className='mb-1'><FaGoogle/> Google Sign-in</Button><br/>
-                <Button variant="outline-secondary" className='mb-2'><FaGithub/> GitHub Sign-in</Button>
+                <br />
+                <Button onClick={handleGoogleSignIn} variant="outline-primary" className='mb-1'><FaGoogle /> Google Sign-in</Button><br />
+                <Button onClick={handleGithubSignIn} variant="outline-secondary" className='mb-2'><FaGithub /> GitHub Sign-in</Button>
             </Form>
         </Container>
     );

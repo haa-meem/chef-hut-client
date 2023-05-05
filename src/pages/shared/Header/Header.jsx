@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import logo from '../../../assets/chef_hut.png'
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { FaUserCircle } from 'react-icons/fa';
+import Image from 'react-bootstrap/Image'
 const Header = () => {
 
-    const { user,logOut } = useContext(AuthContext);
-    const handleLogOut=()=>{
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
         logOut()
-        .then()
-        .error(error=>console.log(error));
+            .then()
+            .error(error => console.log(error));
     }
     return (
         <div className='xs:w-100'>
@@ -28,12 +28,20 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             {
-                                user && <FaUserCircle style={{ fontSize: '2.5rem' }}></FaUserCircle>
+                                user &&
+                                <OverlayTrigger
+                                    placement="bottom"
+                                    overlay={<Tooltip>{user.displayName}</Tooltip>}
+                                >
+                                    <Image src={user?.photoURL} className='rounded-5 me-2' height='50px' />
+                                </OverlayTrigger>
+                                // <Nav.Img {user.photoURL} style={{ fontSize: '2.5rem' }}/>
                             }
-                                {user ? <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
-                                    <Link to="/login">
-                                        <Button variant="secondary">Login</Button>
-                                    </Link>}
+                            {user ? <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
+                                <Link to="/login">
+                                    <Button variant="secondary">Login</Button>
+                                </Link>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
