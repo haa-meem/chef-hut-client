@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { FaRegThumbsUp } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const UpperNav = () => {
@@ -21,7 +22,9 @@ const UpperNav = () => {
                     >
                         <Card className="text-center">
                             <Card.Header>
-                                <Card.Img variant="top" src={chef.picture} style={{ height: '270px' }} />
+                                <LazyLoad>
+                                    <Card.Img variant="top" src={chef.picture} style={{ height: '270px' }} />
+                                </LazyLoad>
                             </Card.Header>
                             <Card.Body>
                                 <Card.Title>{chef.name}</Card.Title>
@@ -31,7 +34,7 @@ const UpperNav = () => {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer className="text-muted d-flex justify-content-between align-items-center">
-                                <p className='d-flex align-items-center'><FaRegThumbsUp className=''/>{chef.likes}</p>
+                                <p className='d-flex align-items-center'><FaRegThumbsUp className='' />{chef.likes}</p>
                                 <Link to={`/chef/${chef.id}`}><Button variant="dark">View Recipes</Button></Link>
                             </Card.Footer>
                         </Card>
