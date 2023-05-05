@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const UpperNav = () => {
     const [chefs, setChefs] = useState([]);
     useEffect(() => {
-        fetch('https://chef-recipe-hunter-server-haa-meem.vercel.app/chefs')
+        fetch('https://chef-recipe-hunter-server-jmm6.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.error())
@@ -18,7 +18,6 @@ const UpperNav = () => {
                 {
                     chefs.map(chef => <Col
                         key={chef.id}
-                        chef={chef}
                     >
                         <Card className="text-center">
                             <Card.Header>
@@ -28,6 +27,7 @@ const UpperNav = () => {
                                 <Card.Title>{chef.name}</Card.Title>
                                 <Card.Text>
                                     <p>Years of experience: {chef.years_of_experience}</p>
+                                    <p>Numbers of recipes: {chef.num_recipes}</p>
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer className="text-muted d-flex justify-content-between align-items-center">

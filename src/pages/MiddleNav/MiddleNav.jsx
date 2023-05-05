@@ -9,7 +9,7 @@ const MiddleNav = () => {
         <div className='my-4 lg:w-75 mx-auto'>
             <h2 className='text-center my-4'>Special Foods from Master Chefs</h2>
             <Carousel>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={300}>
                     <img
                         className="d-block w-100"
                         src={food1} style={{ height: '600px' }} 
@@ -19,7 +19,7 @@ const MiddleNav = () => {
                         <h3 className='text-warning'>Chicken, tomato salad close up</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={250}>
+                <Carousel.Item interval={150}>
                     <img
                         className="d-block w-100"
                         src={food2} style={{ height: '600px' }}
