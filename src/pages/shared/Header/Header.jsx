@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import logo from '../../../assets/chef_hut.png'
 import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Image from 'react-bootstrap/Image'
 const Header = () => {
-
+    //Active Link
+    const navLinkStyles=({isActive})=>{
+        return{
+            fontWeight: isActive ? 'bold' : 'normal'
+        }
+    }
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
@@ -21,9 +26,9 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
 
-                            <Link to="/" className='me-3 text-decoration-none text-white'>Home</Link>
+                            <NavLink style={navLinkStyles} to="/" className='me-3 text-decoration-none text-white'>Home</NavLink>
 
-                            <Link to="/blogs" className='text-decoration-none text-white'>Blog</Link>
+                            <NavLink style={navLinkStyles} to="/blogs" className='text-decoration-none text-white'>Blog</NavLink>
 
                         </Nav>
                         <Nav>
@@ -35,7 +40,6 @@ const Header = () => {
                                 >
                                     <Image src={user?.photoURL} className='rounded-5 me-2' height='50px' />
                                 </OverlayTrigger>
-                                // <Nav.Img {user.photoURL} style={{ fontSize: '2.5rem' }}/>
                             }
                             {user ? <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
                                 <Link to="/login">
